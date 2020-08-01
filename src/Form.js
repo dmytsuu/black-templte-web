@@ -7,10 +7,19 @@ class Form extends React.Component {
     this.state = {
       isSubmited: false,
       username: '',
-      password: ''
+      password: '',
     };
+    this.usernameInput = {};
+    this.baseState = { ...this.state };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
+  }
+
+  handleReset(event) {
+    event.preventDefault();
+    this.setState(this.baseState);
+    this.usernameInput.current.focus();
   }
 
   get isFormValid() {
@@ -38,13 +47,14 @@ class Form extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label htmlFor="username">Username:</label>
-          <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/>
+          <input type="text" name="username" value={this.state.username} onChange={this.handleChange} ref={this.usernameInput}/>
         </div>
         <div className="form-group">
           <label htmlFor="password">Password:</label>
           <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
         </div>
         <input type="submit" value="Submit" disabled={this.state.isSubmited || !this.isFormValid}/>
+        <button onClick={this.handleReset}>Reset</button>
       </form>
     );
   }
