@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import './Form.css';
 
 class Form extends React.Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class Form extends React.Component {
       username: '',
       password: '',
     };
-    this.usernameInput = {};
+    this.usernameInput = React.createRef();
     this.baseState = { ...this.state };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,27 +35,30 @@ class Form extends React.Component {
     event.preventDefault();
     this.setState({ isSubmited: true })
     axios.post('http://localhost:3000/accounts', { account: this.state })
-      .then((result) => {
+      .then(response => {
         alert('Account created.')
       })
-      .catch((errors) => {
-        console.log('ERRORS', errors)
+      .catch(err => {
+        alert(err.response.data.join(', '))
+        this.setState({ isSubmited: false })
       });
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="form" onSubmit={this.handleSubmit}>
         <div className="form-group">
-          <label htmlFor="username">Username:</label>
-          <input type="text" name="username" value={this.state.username} onChange={this.handleChange} ref={this.usernameInput}/>
+          <label className="form-control text-center" htmlFor="username">Username:</label>
+          <input className="form-control" type="text" name="username" value={this.state.username} onChange={this.handleChange} ref={this.usernameInput}/>
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password:</label>
-          <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
+          <label className="form-control text-center" htmlFor="password">Password:</label>
+          <input className="form-control" type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
         </div>
-        <input type="submit" value="Submit" disabled={this.state.isSubmited || !this.isFormValid}/>
-        <button onClick={this.handleReset}>Reset</button>
+        <div className="form-group">
+          <input  className="form-control btn-block" type="submit" value="Submit" disabled={this.state.isSubmited || !this.isFormValid}/>
+          <button className="form-control btn-block" onClick={this.handleReset}>Reset</button>
+        </div>
       </form>
     );
   }
