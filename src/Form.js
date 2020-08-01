@@ -23,6 +23,7 @@ class Form extends React.Component {
 
   handleReset(event) {
     event.preventDefault();
+    if (!window.confirm('Are you sure?')) return;
     this.setState(this.baseState);
     this.usernameInput.current.focus();
   }
