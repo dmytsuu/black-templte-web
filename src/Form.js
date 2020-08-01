@@ -17,6 +17,10 @@ class Form extends React.Component {
     this.handleReset = this.handleReset.bind(this);
   }
 
+  componentDidMount() {
+    this.usernameInput.current.focus();
+  }
+
   handleReset(event) {
     event.preventDefault();
     this.setState(this.baseState);
@@ -49,11 +53,11 @@ class Form extends React.Component {
       <form className="form" onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label className="form-control text-center" htmlFor="username">Username:</label>
-          <input className="form-control" type="text" name="username" value={this.state.username} onChange={this.handleChange} ref={this.usernameInput}/>
+          <input className="form-control" type="text" id="username" name="username" placeholder="Roguegodx" value={this.state.username} onChange={this.handleChange} ref={this.usernameInput}/>
         </div>
         <div className="form-group">
           <label className="form-control text-center" htmlFor="password">Password:</label>
-          <input className="form-control" type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
+          <input className="form-control" type="password" id="password" name="password" placeholder="******" value={this.state.password} onChange={this.handleChange}/>
         </div>
         <div className="form-group">
           <input  className="form-control btn-block" type="submit" value="Submit" disabled={this.state.isSubmited || !this.isFormValid}/>

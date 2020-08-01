@@ -23,8 +23,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
+        <h2 className="heading">Create Account</h2>
         <Form/>
         <div className="realmlist">
+          <h2 className="heading">Connection Details</h2>
           <p>Realm: { this.state.name }</p>
           { `set realmlist ${this.state.address}:${this.state.port}` }
         </div>
