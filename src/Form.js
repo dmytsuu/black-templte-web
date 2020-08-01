@@ -27,6 +27,9 @@ class Form extends React.Component {
     axios.post('http://localhost:3000/accounts', { account: this.state })
       .then((result) => {
         alert('Account created.')
+      })
+      .catch((errors) => {
+        console.log('ERRORS', errors)
       });
   }
 
