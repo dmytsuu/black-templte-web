@@ -61,8 +61,8 @@ class Form extends React.Component {
           <input className="form-control" type="password" id="password" name="password" placeholder="******" value={this.state.password} onChange={this.handleChange}/>
         </div>
         <div className="form-group">
-          <input  className="form-control btn-block" type="submit" value="Submit" disabled={this.state.isSubmited || !this.isFormValid}/>
-          <button className="form-control btn-block" onClick={this.handleReset}>Reset</button>
+          <input  className="form-control btn btn-block" type="submit" value="Submit" disabled={this.state.isSubmited || !this.isFormValid}/>
+          <button className="form-control btn btn-block" onClick={this.handleReset}>Reset</button>
         </div>
       </form>
     );

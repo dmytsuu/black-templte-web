@@ -8,5 +8,40 @@ body {
 }
 
 * {
-  box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #181818;
+  	color: #dadada;
+  }
+
+  input[type='text'], input[type='password'] {
+    background-color: #121212;
+    border: 1px solid #121212;
+    color: #dadada;
+  }
+
+  input:focus[type='text'], input:focus[type='password'] {
+    outline: none;
+    border: 1px solid blue;
+  }
+
+  button, .btn {
+    background-color: #323232;
+    color: #dadada;
+    border: 1px solid #323232;
+    outline: none;
+  }
+  button[disabled], .btn[disabled] {
+    background: #282828;
+    border: 1px solid #282828;
+    color: #adadad;
+  }
+
+  button:focus, .btn:focus {
+    border: 1px solid blue;
+  }
 }
