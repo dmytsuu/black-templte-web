@@ -14,7 +14,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    axios.get('http://localhost:3000/realmlist')
+    axios.get('https://165.232.68.184:3000/realmlist')
     .then((response => {
       this.setState(response.data)
     }))
