@@ -39,7 +39,7 @@ class Form extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.setState({ isSubmited: true })
-    axios.post('https://165.232.68.184:3000/accounts', { account: this.state })
+    axios.post('https://bt-api.pantsu.vision/accounts', { account: this.state })
       .then(response => {
         alert('Account created.')
       })

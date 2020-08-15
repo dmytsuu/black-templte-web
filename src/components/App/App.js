@@ -14,7 +14,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    axios.get('https://165.232.68.184:3000/realmlist')
+    axios.get('https://bt-api.pantsu.vision/realmlist/')
     .then((response => {
       this.setState(response.data)
     }))
