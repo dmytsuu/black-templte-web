@@ -35,7 +35,7 @@ class App extends React.Component {
         <a href={this.state.downloadClientLink}>
           <h2 className="heading link">Download Client</h2>
         </a>
-        <a href={this.state.discordLink}>
+        <a href={this.state.discordLink} target="_blank" rel="noopener noreferrer">
           <h2 className="heading link">Join Discord</h2>
         </a>
       </div>
