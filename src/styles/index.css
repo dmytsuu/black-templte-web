@@ -35,6 +35,7 @@ body {
     border: 1px solid #323232;
     outline: none;
   }
+
   button[disabled], .btn[disabled] {
     background: #282828;
     border: 1px solid #282828;
@@ -43,5 +44,13 @@ body {
 
   button:focus, .btn:focus {
     border: 1px solid blue;
+  }
+
+  a:link, a:visited {
+    color: cornsilk;
+  }
+
+  a:active {
+    color: lightsteelblue;
   }
 }

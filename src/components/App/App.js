@@ -9,7 +9,9 @@ class App extends React.Component {
     this.state = {
       address: '',
       port: '',
-      name: ''
+      name: '',
+      downloadClientLink: 'https://download.wowlibrary.com/tbc/TBC-2.4.3.8606-enGB-Repack.7z',
+      discordLink: 'https://discord.gg/96CeRd'
     }
   };
 
@@ -25,11 +27,17 @@ class App extends React.Component {
       <div className="app">
         <h2 className="heading">Create Account</h2>
         <Form/>
-        <div className="realmlist">
+        <div className="connect">
           <h2 className="heading">Connection Details</h2>
           <p>Realm: { this.state.name }</p>
           { `set realmlist ${this.state.address}:${this.state.port}` }
         </div>
+        <a href={this.state.downloadClientLink}>
+          <h2 className="heading link">Download Client</h2>
+        </a>
+        <a href={this.state.discordLink}>
+          <h2 className="heading link">Join Discord</h2>
+        </a>
       </div>
     );
   }
