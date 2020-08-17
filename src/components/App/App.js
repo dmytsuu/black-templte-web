@@ -30,7 +30,7 @@ class App extends React.Component {
         <div className="connect">
           <h2 className="heading">Connection Details</h2>
           <p>Realm: { this.state.name }</p>
-          { `set realmlist ${this.state.address}:${this.state.port}` }
+          { `set realmlist ${this.state.address}` }
         </div>
         <a href={this.state.downloadClientLink}>
           <h2 className="heading link">Download Client</h2>
